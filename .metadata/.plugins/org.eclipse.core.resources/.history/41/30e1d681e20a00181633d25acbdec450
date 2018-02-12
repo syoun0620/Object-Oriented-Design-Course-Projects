@@ -1,0 +1,25 @@
+package hw2;
+
+import java.awt.List;
+import java.util.Scanner;
+
+public class HW2DiceGame {
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		System.out.println("How many players do you want in this game?: ");
+		int num = sc.nextInt();
+		int input;
+		Integer[] playerL = new Integer[num];
+		for (int i = 0; i<num; i++){
+			input = sc.nextInt();
+			playerL[i] = input; 
+		}
+		
+		for (int i = 0; i<playerL.length; i++){
+			System.out.println(playerL[i]);
+		}
+	}
+
+	
+	
+}

@@ -1,0 +1,20 @@
+package hw3;
+
+import java.util.Scanner;
+
+@SuppressWarnings("serial")
+public class CraftyPlayer extends Player {
+	public CraftyPlayer(String name){
+		super(name);
+	}
+	public String getType(){
+		return "Crafty Bot";
+	}
+	public boolean decide(int maxChipAmongPlayers, int chipsInPot){
+		// true - if keep going. false - if stop and take the pot. 
+		if (this.numChip + chipsInPot > maxChipAmongPlayers){
+			return false;
+		}
+		return true;
+	}
+}

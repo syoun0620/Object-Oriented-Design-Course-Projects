@@ -1,0 +1,15 @@
+package hw3;
+
+import java.util.Scanner;
+
+@SuppressWarnings("serial")
+public class TimidPlayer extends Player {
+	public TimidPlayer(String name, int i, String type){
+		super(name, i, type);
+	}
+	public boolean decide(int maxChipAmongPlayers, int chipsInPot){
+		// true - if keep going. false - if stop and take the pot. 
+		
+		return false; // always return false for TimidPlayer. 
+	}
+}

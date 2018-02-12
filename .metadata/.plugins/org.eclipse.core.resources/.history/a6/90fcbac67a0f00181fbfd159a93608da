@@ -1,0 +1,61 @@
+package hw3;
+
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public abstract class Player implements Serializable {
+	protected String pname;
+	protected int numChip;
+	protected int win;
+	protected int loss;
+	
+	
+	protected Player(String pname){
+		this.pname = pname;
+		this.numChip = 0;
+		this.win = 0;
+		this.loss = 0;
+	}
+	public abstract boolean decide(int maxChipAmongPlayers, int chipsInPot);
+	public void setChipZero(){
+		this.numChip = 0;
+	}
+	public int getChip(){
+		return this.numChip;
+	}
+	public void addChip(int n){
+		this.numChip += n;
+	}
+
+	public String getPlayerName(){
+		return this.pname;
+	}
+	public String toString(){
+		return "Type: " + getType() +", name: " + this.pname + ":" + this.numChip + ", number of winning " + this.win + ", number of loss: " +this.loss + ", winning percentage: " +getWinningPercentage() + ". ";
+	}
+	public void addWin(){
+		this.win++;
+	}
+	public int getWin(){
+		return this.win;
+	}
+	public void addLoss(){
+		this.loss++;
+	}
+	public int getLoss(){
+		return this.loss;
+	}
+	protected abstract String getType();
+	
+	public int getWinningPercentage(){
+		return (int) (((double)this.win/(this.win + this.loss)) *100);
+	}
+	public int compareTo(Player p){
+		int wp1 = this.getWinningPercentage();
+		int wp2 = p.getWinningPercentage();
+		if (wp1 == wp2)
+			return this.getPlayerName().compareTo(p.getPlayerName());
+		else
+			return wp2-wp1;
+	}
+}

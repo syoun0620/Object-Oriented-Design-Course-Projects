@@ -1,0 +1,18 @@
+package hw2;
+
+public class TimidPlayer implements Player {
+	private int numChip;
+	
+	public TimidPlayer(){
+		numChip = 0;
+	}
+	public boolean decide(){
+		return true;
+	}
+	public int getChip(){
+		return numChip;
+	}
+	public void addChip(int n){
+		numChip += n;
+	}
+}

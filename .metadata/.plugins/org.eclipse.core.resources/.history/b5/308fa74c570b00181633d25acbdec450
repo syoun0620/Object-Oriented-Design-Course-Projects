@@ -1,0 +1,24 @@
+package hw2;
+
+import java.awt.List;
+import java.util.Scanner;
+
+public class HW2DiceGame {
+	
+	public static void main(String[] args){
+		
+		Initialize init = new Initialize();
+		init.start();
+		while (!init.isDone){
+			init.elapseTurn();
+		}
+		
+		
+		
+		
+		
+	}
+
+	
+	
+}

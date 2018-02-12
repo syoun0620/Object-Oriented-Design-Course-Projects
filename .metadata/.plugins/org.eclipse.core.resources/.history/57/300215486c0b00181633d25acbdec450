@@ -1,0 +1,28 @@
+package hw2;
+
+import java.util.Scanner;
+
+public class HumanPlayer implements Player {
+	private int numChip;
+	private int playerId;
+	Scanner sc;
+	
+	public HumanPlayer(int n, Scanner sc){
+		this.playerId = n;
+		this.numChip = 0;
+		this.sc = sc;
+	}
+	
+	public boolean decide(){
+		return true;
+	}
+	public int getChip(){
+		return numChip;
+	}
+	public void addChip(int n){
+		numChip += n;
+	}
+	public int getPlayerId(int n){
+		return this.playerId;
+	}
+}

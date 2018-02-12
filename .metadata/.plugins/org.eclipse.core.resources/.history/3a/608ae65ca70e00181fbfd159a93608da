@@ -1,0 +1,15 @@
+package hw3;
+
+public class TimidPlayer extends Player {
+	private int numChip;
+	private int playerId;
+	
+	public TimidPlayer(String name, int i){
+		super(name, i);
+	}
+	public boolean decide(int maxChipAmongPlayers, int chipsInPot){
+		// true - if keep going. false - if stop and take the pot. 
+		
+		return false; // always return false for TimidPlayer. 
+	}
+}

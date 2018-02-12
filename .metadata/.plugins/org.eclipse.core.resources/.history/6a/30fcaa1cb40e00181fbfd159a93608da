@@ -1,0 +1,79 @@
+package hw3;
+
+import java.util.Map;
+import java.util.Scanner;
+
+public class Initialize {
+	final int PLAYER_KIND = 3;
+	private Game game;
+	private Scanner sc;
+	GameConnection conn = new GameConnection("YounDiceGame");
+	Map<String, Player> playerMap = conn.getMap();
+	
+	public void setUp(){
+		
+		sc = new Scanner(System.in);
+		System.out.print("How many players do you want in this game?: ");
+		int numPlayer = sc.nextInt();
+		while (numPlayer <2){
+			System.out.println("At least 2 players are required.");
+			numPlayer = sc.nextInt();
+		}
+		String pname;
+		int ptype;
+		
+		
+		Player[] players = new Player[numPlayer];
+		for (int i = 0; i<numPlayer; i++){
+			System.out.print("Enter player name and Choose the type of player" + (i+1) + " (1 = human player, 2 = timid player, 3 = crafty player) : ");
+			pname = sc.next();
+			ptype = sc.nextInt();
+			
+			
+			if (ptype < PLAYER_KIND+1){
+				if (playerMap.get(ptype) == null){ // if the username does NOT exist in Map. 
+					if (ptype == 1){
+						players[i] = new HumanPlayer(pname, i+1, "Human", this.sc);
+					}
+					else if (ptype == 2){
+						players[i] = new TimidPlayer(pname, i+1, "Timid Bot");
+					}
+					else if (ptype == 3){
+						players[i] = new CraftyPlayer(pname, i+1, "Crafty Bot");
+					}
+					playerMap.put(pname, players[i]); 
+				}
+				else{ // if the username already exists in Map. 
+					players[i] = playerMap.get(ptype);
+				}
+				
+			}
+			else{
+				System.out.println("Please choose a correct input.");
+				i--;
+			}
+		}
+		System.out.println(""); // to have empty line. 
+		
+		game = new Game(players);
+//		game.generatePlayers(playerInput);
+		
+	}
+	public void begin(){
+		while (!game.isDone()){
+			game.elapseOneTurn();
+		}
+		sc.close();
+	}
+	public void savePlayer(){
+		conn.saveMap(playerMap);
+	}
+	
+	public void elapseOneTurn(){
+		game.elapseOneTurn();
+	}
+
+	public void printWinner(){
+		System.out.println("Congratulations! The winner is " + game.getWinnerName() + ".");
+	}
+}

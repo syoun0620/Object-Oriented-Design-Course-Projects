@@ -1,0 +1,37 @@
+package hw2;
+
+import java.util.Scanner;
+
+public class HumanPlayer implements Player {
+	private int numChip;
+	private int playerId;
+	Scanner sc;
+	
+	public HumanPlayer(Scanner sc, int n){
+		this.playerId = n;
+		this.numChip = 0;
+		this.sc = sc;
+	}
+	
+	public boolean decide(int maxChipAmongPlayers, int chipsInPot){
+		// true - if keep going. false - if stop and take the pot. 
+		System.out.println("Choose an option. 1) Keep going    2) Stop and take the pot.");
+		int input = sc.nextInt();
+		if (input == 1)
+			return true;
+		else
+			return false;
+	}
+	public int getChip(){
+		return this.numChip;
+	}
+	public void addChip(int n){
+		this.numChip += n;
+	}
+	public int getPlayerId(){
+		return this.playerId;
+	}
+	public String toString(){
+		return this.playerId + ":" + this.numChip + " ";
+	}
+}

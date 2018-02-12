@@ -1,0 +1,103 @@
+package hw2;
+
+import java.util.Scanner;
+
+public class Game {
+	private Integer[] playerL;
+	private Player[] players;
+	private int numPlayer;
+	private int turnIndex;
+	
+	private int chipsInPot;
+	private Player topPlayer;
+	private int maxChipAmongPlayers = 0;
+	Scanner sc;
+	private int numConsecutiveWinning;
+
+	public Game(Integer[] playerL, Scanner sc){
+		this.playerL = playerL;
+		this.players = new Player[playerL.length];
+		this.sc = sc;
+		this.turnIndex = 0;
+		this.numPlayer = playerL.length;
+		this.chipsInPot = 1;
+		this.numConsecutiveWinning = 1;
+	}
+//	public Game(){
+//		
+//	}
+	public void generatePlayers(Integer[] playerL){
+		for (int i = 0; i<playerL.length; i++){
+			if (playerL[i] == 1){
+				this.players[i] = new HumanPlayer(i+1);
+			}
+			else if (playerL[i] == 2){
+				this.players[i] = new TimidPlayer(i+1);
+			}
+			else if (playerL[i] == 3){
+				this.players[i] = new CraftyPlayer(i+1);
+			}
+		}
+	}
+	
+	public boolean isDone(){
+		return getMaxChipAmongPlayers() >= 30;
+	}
+	
+	public int rollDice(){
+		return (int) ((Math.random() * 4) +1);
+	}
+	
+	public void elapseOneTurn(){
+		Player currentTurnPlayer = this.players[this.turnIndex++];
+		for (int i = 0; i<this.numConsecutiveWinning; i++){
+			if (rollDice() == 1){
+				System.out.println("Player" + currentTurnPlayer.getPlayerId() + " aced out after " + this.numConsecutiveWinning);
+				this.numConsecutiveWinning = 1;
+
+				break;
+			}
+			else if (i == this.numConsecutiveWinning-1){
+				// win. never got dice 1. 
+				if (currentTurnPlayer.decide(getMaxChipAmongPlayers())){ //if this player decide to keep going
+					this.numConsecutiveWinning++;
+					this.chipsInPot += this.numConsecutiveWinning;
+				}
+				else{ // if thisPlayerTurn.decide() == false. which means take the pot. 
+					currentTurnPlayer.addChip(chipsInPot);
+					this.chipsInPot = 1;
+					this.numConsecutiveWinning=1;
+					System.out.println("Player" + currentTurnPlayer.getPlayerId() + " stopped after " + this.numConsecutiveWinning + " rolls and won " + this.chipsInPot);
+				}
+			}
+		}
+		// print status
+		
+		System.out.println("Current Status: " + toString() );
+		System.out.println("The pot contains " + this.chipsInPot + "\n");
+		
+		
+		this.turnIndex = this.turnIndex%numPlayer;
+		
+	}
+	public String toString(){
+		String res = "";
+		for (Player p: this.players){
+			res += "player" + p.toString();
+		}
+		return res;
+	}
+	private int getMaxChipAmongPlayers(){
+		int maxChip = 0;
+		for (Player p: this.players){
+			if (p.getChip() > maxChip)
+				maxChip = p.getChip();
+		}
+		return maxChip;
+	}
+//	public void printPlayers(){    // testing purpose.
+//		for (Player p: this.players){
+//			System.out.println(p);
+//		}
+//	}
+}

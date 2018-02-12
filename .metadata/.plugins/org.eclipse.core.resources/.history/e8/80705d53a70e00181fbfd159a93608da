@@ -1,0 +1,33 @@
+package hw3;
+
+import java.util.Scanner;
+
+public class HumanPlayer extends Player {
+	private int numChip;
+	private int playerId;
+	private Scanner sc;
+	
+	public HumanPlayer(String name, int n, Scanner sc){
+		super(name, n);
+		this.sc = sc;
+	}
+	
+	public boolean decide(int maxChipAmongPlayers, int chipsInPot){
+		// true - if keep going. false - if stop and take the pot. 
+		System.out.print("Choose an option. 1) Keep going    2) Stop and take the pot.");
+		int input = sc.nextInt();
+		if (input == 1)
+			return true;
+		else
+			return false;
+	}
+	public int getChip(){
+		return this.numChip;
+	}
+	public void addChip(int n){
+		this.numChip += n;
+	}
+	public int getPlayerId(){
+		return this.playerId;
+	}
+}

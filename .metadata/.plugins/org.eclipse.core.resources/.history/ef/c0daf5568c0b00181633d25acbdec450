@@ -1,0 +1,59 @@
+package hw2;
+
+import java.util.Scanner;
+
+public class Initialize {
+	private Integer[] playerInput; 
+	private boolean isDone;
+	final int PLAYER_KIND = 3;
+	Game game;
+	public Initialize(){
+		isDone = false;
+	}
+
+	
+	public void setUp(){
+		Scanner sc = new Scanner(System.in);
+		System.out.println("How many players do you want in this game?: ");
+		int numPlayer = sc.nextInt();
+		while (numPlayer <2){
+			System.out.println("At least 2 players are required.");
+			numPlayer = sc.nextInt();
+		}
+		int input;
+		
+		Integer[] playerInput = new Integer[numPlayer];
+		for (int i = 0; i<numPlayer; i++){
+			System.out.print("Choose the type of player" + (i+1) + " (1 = human player, 2 = timid player, 3 = crafty player) : ");
+			input = sc.nextInt();
+			if (input < PLAYER_KIND+1){
+				playerInput[i] = input; 
+			}
+			else{
+				System.out.println("Please choose a correct input.");
+				i--;
+			}
+		}
+//		sc.close();
+		
+		game = new Game(playerInput, sc);
+		game.generatePlayers(playerInput);
+		
+//		players = game.generatePlayers(playerInput); //not needed. for testing purpose. 
+		
+	}
+//	public void printPlayers(){ //not necessary. Testing purpose
+//		game.printPlayers();
+//	}
+	
+	public boolean isDone(){
+		return game.isDone();
+	}
+	
+	public void elapseOneTurn(){
+		game.elapseOneTurn();
+	}
+	public int getTopPlyaerId(){
+		return game.getWinnerId();
+	}
+}

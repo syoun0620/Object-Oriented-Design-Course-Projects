@@ -1,0 +1,29 @@
+package hw3;
+
+public class CraftyPlayer extends Player {
+	private int numChip;
+	private int playerId;
+	
+	public CraftyPlayer(String name, int n){
+		super(name, n);
+	}
+	public boolean decide(int maxChipAmongPlayers, int chipsInPot){
+		// true - if keep going. false - if stop and take the pot. 
+		if (this.numChip + chipsInPot > maxChipAmongPlayers){
+			return false;
+		}
+		return true;
+	}
+	public int getChip(){
+		return this.numChip;
+	}
+	public void addChip(int n){
+		this.numChip += n;
+	}
+	public int getPlayerId(){
+		return this.playerId;
+	}
+	public String toString(){
+		return this.playerId + ":" + this.numChip + " ";
+	}
+}

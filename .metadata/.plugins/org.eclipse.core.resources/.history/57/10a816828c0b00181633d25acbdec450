@@ -1,0 +1,28 @@
+package hw2;
+
+import java.awt.List;
+
+public class HW2DiceGame {
+	
+	public static void main(String[] args){
+		
+		Initialize init = new Initialize();
+		init.setUp();
+		
+		
+//		init.printPlayers();
+		
+		while (!init.isDone()){
+			init.elapseOneTurn();
+		}
+		System.out.println("The winner is Player" + init.getWinnerId());
+		
+		
+		
+		
+		
+	}
+
+	
+	
+}

@@ -1,0 +1,27 @@
+package hw3;
+
+import java.util.Collection;
+import java.util.Map;
+
+public class HW3PlayerStats {
+	static GameConnection conn = new GameConnection("YounDiceGame14");
+	static Map<String, Player> playerMap = conn.getMap();
+	
+	static Collection<Player> playerL = playerMap.values();
+	
+	public static void main(String[] args){
+		System.out.println("!@#!@#!@#");
+		System.out.println(playerL);
+		System.out.println("AFTER SORT");
+//		myMethod(playerL.get(0));
+		playerL.sort();
+		System.out.println(playerL);
+	}
+	
+	public static void myMethod(Object obj) {
+	    Class cls = obj.getClass();
+	    System.out.println("The type of the object is: " + cls.getName());
+	}
+	
+	
+}

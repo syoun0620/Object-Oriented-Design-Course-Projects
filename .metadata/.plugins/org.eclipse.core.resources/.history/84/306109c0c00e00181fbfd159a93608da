@@ -1,0 +1,15 @@
+package hw3;
+
+@SuppressWarnings("serial")
+public class CraftyPlayer extends Player {
+	public CraftyPlayer(String name, int n, String type, Scanner sc){
+		super(name, n, type,sc);
+	}
+	public boolean decide(int maxChipAmongPlayers, int chipsInPot){
+		// true - if keep going. false - if stop and take the pot. 
+		if (this.numChip + chipsInPot > maxChipAmongPlayers){
+			return false;
+		}
+		return true;
+	}
+}

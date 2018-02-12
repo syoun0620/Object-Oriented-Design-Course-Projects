@@ -1,0 +1,19 @@
+package hw2;
+
+public class HumanPlayer implements Player {
+	private int numChip;
+	
+	public HumanPlayer(){
+		numChip = 0;
+	}
+	
+	public boolean decide(){
+		return true;
+	}
+	public int getChip(){
+		return numChip;
+	}
+	public void addChip(int n){
+		numChip += n;
+	}
+}

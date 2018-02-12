@@ -1,0 +1,17 @@
+package hw3;
+
+import java.util.Collection;
+import java.util.Map;
+
+public class HW3PlayerStats {
+	GameConnection conn = new GameConnection("YounDiceGame14");
+	Map<String, Player> playerMap = conn.getMap();
+	
+	Collection<Player> playerL = playerMap.values();
+	public static void main(String[] arg){
+		System.out.println("!@#!@#!@#");
+		System.out.println(playerL);
+	}
+	
+	
+}

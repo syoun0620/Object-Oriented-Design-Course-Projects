@@ -1,0 +1,50 @@
+package hw3;
+
+public abstract class Player {
+	protected String pname;
+	protected int playerId;
+	protected int numChip;
+	protected int win;
+	protected int loss;
+	protected String type;
+	
+	protected Player(String pname, int id, String type){
+		this.pname = pname;
+		this.numChip = 0;
+		this.win = 0;
+		this.loss = 0;
+		this.playerId = id;
+		this.type = type;
+	}
+	public abstract boolean decide(int maxChipAmongPlayers, int chipsInPot);
+	public int getChip(){
+		return this.numChip;
+	}
+	public void addChip(int n){
+		this.numChip += n;
+	}
+	public int getPlayerId(){
+		return this.playerId;
+	}
+	public String getPlayerName(){
+		return this.pname;
+	}
+	public String toString(){
+		return "Type: " + this.type +" " + this.pname + ":" + this.numChip + " number of winning " + this.win + " number of loss: " +this.loss + " winning percentage: " +getWinningPercentage();
+	}
+	public void addWin(){
+		this.win++;
+	}
+	public int getWin(){
+		return this.win;
+	}
+	public void addLoss(){
+		this.loss++;
+	}
+	public int getLoss(){
+		return this.loss;
+	}
+	public int getWinningPercentage(){
+		return this.win/(this.win + this.loss) *100;
+	}
+}

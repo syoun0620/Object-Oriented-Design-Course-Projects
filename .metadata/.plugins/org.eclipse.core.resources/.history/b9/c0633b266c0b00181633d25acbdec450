@@ -1,0 +1,23 @@
+package hw2;
+
+public class CraftyPlayer implements Player {
+	private int numChip;
+	private int playerId;
+	
+	public CraftyPlayer(int n){
+		numChip = 0;
+		this.playerId = n;
+	}
+	public boolean decide(){
+		return true;
+	}
+	public int getChip(){
+		return numChip;
+	}
+	public void addChip(int n){
+		numChip += n;
+	}
+	public int getPlayerId(int n){
+		return this.playerId;
+	}
+}
