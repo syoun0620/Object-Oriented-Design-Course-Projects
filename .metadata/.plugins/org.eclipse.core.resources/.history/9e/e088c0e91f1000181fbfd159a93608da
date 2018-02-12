@@ -44,7 +44,6 @@ public abstract class Player implements Serializable, Comparable<Player> {
 	public int getLoss(){
 		return this.loss;
 	}
-	//
 	protected abstract String getType();
 	
 	public int getWinningPercentage(){
