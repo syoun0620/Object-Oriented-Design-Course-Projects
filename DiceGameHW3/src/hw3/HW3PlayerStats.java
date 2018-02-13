@@ -3,7 +3,7 @@ package hw3;
 import java.util.*;
 
 public class HW3PlayerStats {
-	static GameConnection conn = new GameConnection("YounDiceGame16");
+	static GameConnection conn = new GameConnection("DavidYounDiceGame");
 	static Map<String, Player> playerMap = conn.getMap();
 	
 	static List<Player> playerL = new ArrayList<Player> (playerMap.values());

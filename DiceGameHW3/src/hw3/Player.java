@@ -15,7 +15,7 @@ public abstract class Player implements Serializable, Comparable<Player> {
 		this.win = 0;
 		this.loss = 0;
 	}
-	public abstract boolean decide(int maxChipAmongPlayers, int chipsInPot);
+	
 	public void setChipZero(){
 		this.numChip = 0;
 	}
@@ -30,23 +30,14 @@ public abstract class Player implements Serializable, Comparable<Player> {
 		return this.pname;
 	}
 	public String toString(){
-		return "Type: " + getType() +", name: " + this.pname + ":" + this.numChip + ", number of winning " + this.win + ", number of loss: " +this.loss + ", winning percentage: " +getWinningPercentage() + ". ";
+		return "Type: " + getType() +", name: " + this.pname + ", numChip: " + this.numChip + ", numWin " + this.win + ", numLoss: " +this.loss + ", win percentage: " +getWinningPercentage() + ". ";
 	}
 	public void addWin(){
 		this.win++;
 	}
-	public int getWin(){
-		return this.win;
-	}
 	public void addLoss(){
 		this.loss++;
 	}
-	public int getLoss(){
-		return this.loss;
-	}
-	//
-	protected abstract String getType();
-	
 	public int getWinningPercentage(){
 		return (int) (((double)this.win/(this.win + this.loss)) *100);
 	}
@@ -58,4 +49,7 @@ public abstract class Player implements Serializable, Comparable<Player> {
 		else
 			return wp2-wp1;
 	}
+	
+	protected abstract String getType();
+	protected abstract boolean decide(int maxChipAmongPlayers, int chipsInPot);
 }

@@ -1,0 +1,15 @@
+package hw3;
+
+public class HW3DiceGame {
+	
+	public static void main(String[] args){
+		
+		DiceGame init = new DiceGame();
+		init.setUp();
+		init.begin();
+		init.updateWinLoss();
+		init.printWinner();
+		init.resetPlayerChip();
+		init.savePlayer();	
+	}	
+}

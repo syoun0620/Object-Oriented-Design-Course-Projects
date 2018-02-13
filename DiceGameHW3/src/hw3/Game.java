@@ -63,7 +63,7 @@ public class Game {
 		}
 		return res;
 	}
-	private Player getTopPlayer(){
+	public Player getTopPlayer(){
 		int maxChip = 0;
 		Player topPlayer = this.players[0]; // to initialize. 
 		for (Player p: this.players){
@@ -74,11 +74,7 @@ public class Game {
 		}
 		return topPlayer;
 	}
-	public String getWinnerName(){
-		String temp = "";
-		temp += getTopPlayer().getPlayerName() + " win: " + getTopPlayer().getWin() + " loss: "+ getTopPlayer().getLoss();
-		return temp;
-	}
+
 	public void updateWinLoss(){
 		Player winnerP = getTopPlayer();		
 		for (Player p: players){
