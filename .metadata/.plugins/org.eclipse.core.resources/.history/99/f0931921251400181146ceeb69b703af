@@ -1,0 +1,33 @@
+package hw3;
+import java.util.*;
+public class test {
+//	public static void main(String[] args){
+//		int a = 1<<2;
+//		System.out.println(a);
+//	}
+	
+	public static void main(String[] args){
+		Map<Integer, String> hashMap = new HashMap<Integer, String>(5);
+	    hashMap.put(1, "apple");
+	    hashMap.put(2, null);
+	    System.out.println(hashMap.values());
+	    hashMap.put(new Integer(3), "peach");
+	    System.out.println(hashMap.values());
+	    hashMap.put(3, "orange");
+	    System.out.println(hashMap.values());
+	    hashMap.put(4, "peach");
+	    System.out.println(hashMap.values());
+	    
+	    ArrayList strA = new ArrayList(hashMap.values());
+	    for (String v : strA) {
+	    	System.out.println(v);
+	        if ("orange".equals(v)) {
+	        	System.out.println("Yosh" + v);
+	            hashMap.put(5, "banana");
+	            System.out.println("here");
+	        }    
+	    }
+	    System.out.println(hashMap.values());
+	    System.out.println(hashMap.get(5));
+	}
+}

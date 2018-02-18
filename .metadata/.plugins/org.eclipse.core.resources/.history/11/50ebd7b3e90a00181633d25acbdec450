@@ -1,7 +1,0 @@
-package hw2;
-
-public interface Player {
-	public boolean decide();
-	public int getChip();
-	public int addChip();
-}

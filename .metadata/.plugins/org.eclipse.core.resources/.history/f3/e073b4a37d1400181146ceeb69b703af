@@ -1,0 +1,7 @@
+package hw4;
+
+import java.util.Comparator;
+
+public class CompareByCustsServed implements Comparator<CashRegister> {
+
+}

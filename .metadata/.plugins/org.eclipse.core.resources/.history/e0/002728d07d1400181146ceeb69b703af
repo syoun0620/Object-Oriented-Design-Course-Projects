@@ -1,0 +1,69 @@
+package hw4;
+
+import java.util.*;
+
+public class CashRegister {
+   private int whoami;  // identifies the cash register
+   private List<Customer> custs = new LinkedList<Customer>();
+   private int numserved = 0;
+   private int totalWaitTime = 0;
+   private Customer currentCust = null;
+   private Cashier cashier;
+   private String dist;
+   private int maxItems;
+
+   public CashRegister(int n, boolean isNormal, String dist, int maxItems) {
+      whoami = n;
+      cashier = isNormal? new NormalSpeed():new Fast();
+      this.dist = dist;
+      this.maxItems = maxItems;
+   }
+
+   public void addCustomer(int t) {
+      Customer c = new Customer(t, dist, maxItems);
+      custs.add(c);
+      if (currentCust == null)
+         currentCust = c;
+   }
+
+   public void elapseOneSecond(int currentTime) {
+	   int numLoop = cashier.getType()=="fast"?2:1; // if Cashier is 'fast', then elapse twice in one second. 
+	   
+	   for (int i = 0; i<numLoop; i++){
+		   // Return if there is no current customer.
+	      if (currentCust == null)
+	         return;
+
+	      // Otherwise, process the current customer.
+	      currentCust.elapseOneSecond();
+	      if (currentCust.isFinished()) {
+	         numserved++;
+	         totalWaitTime += currentTime - currentCust.arrivalTime();
+
+	         // Remove the finished customer and make the next customer current.
+	         custs.remove(0);
+	         currentCust = custs.size() > 0 ? custs.get(0) : null;
+	      }
+	   }
+      
+   }
+
+   public int size() { 
+      return custs.size(); 
+   }
+
+   public String statistics() {
+      return "Register " + whoami
+            + "\tNumber served = " + numserved
+            + "\tAverage wait time = " + avgWaitTime();	
+   }
+
+   public int avgWaitTime() { 
+      return totalWaitTime / numserved; 
+   }
+   public int numCustsServed(){
+	   return numsServed;
+   }
+   
+}
+

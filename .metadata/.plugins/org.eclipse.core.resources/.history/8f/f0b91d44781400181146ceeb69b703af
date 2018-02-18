@@ -1,0 +1,12 @@
+package hw4;
+
+public class Uniform {
+	private int howmanyItmes;
+	public Uniform(int n){
+		howmanyItems = 1 + (int)(Math.random() * 10);
+//		num = n;
+	}
+	public getNumItems(){
+		return howmanyItems;
+	}
+}

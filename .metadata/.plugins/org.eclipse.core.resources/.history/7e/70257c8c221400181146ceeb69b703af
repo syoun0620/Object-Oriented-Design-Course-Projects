@@ -1,0 +1,30 @@
+package hw3;
+
+public class test {
+//	public static void main(String[] args){
+//		int a = 1<<2;
+//		System.out.println(a);
+//	}
+	class Main {
+	    private void filter(List<String> list) {
+
+
+if (list != null) { 
+    for (String s : list) 
+        if ("bad".equals(s)) list.iterator().current().remove(); 
+}
+
+	    }
+
+	 
+
+	   public void someFunction(List<String> list) {
+
+	       filter(list);
+
+	       // do some work on cleaned "list"       
+
+	   }
+
+	}
+}

@@ -1,0 +1,47 @@
+package hw3;
+
+public class test {
+//	public static void main(String[] args){
+//		int a = 1<<2;
+//		System.out.println(a);
+//	}
+	class Key {
+
+		   int m_keyVal;
+
+		   Key(int val) {
+
+		       m_keyVal = val;
+
+		   }
+
+		   [answer code C1]
+
+		   [answer code C2]
+
+		}
+
+		 
+
+		class Main {
+
+		   static Map<Key, Object> table = new HashMap<Key, Object>();
+
+		   static public void addToMap(int val, Object obj) {
+
+		       Key key = new Key(val);
+
+		       table.put(key, obj);
+
+		   }
+
+		   static public Object getObj(int val) {
+
+		       Key key = new Key(val);
+
+		       return table.get(key);
+
+		   }
+
+		}
+}

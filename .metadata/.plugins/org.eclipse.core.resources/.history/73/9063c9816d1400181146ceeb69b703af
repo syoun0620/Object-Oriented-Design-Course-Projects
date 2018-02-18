@@ -1,0 +1,11 @@
+package hw4;
+
+public class Fast implements Cashier {
+
+	@Override
+	public void hello() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

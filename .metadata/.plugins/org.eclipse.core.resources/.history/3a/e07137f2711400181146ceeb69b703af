@@ -1,0 +1,11 @@
+package hw4;
+
+public class NormalSpeed implements Cashier {
+	public String getType(){
+		return "NormalSpeed";
+	}
+	public void elapseOneSecond(){
+		
+	}
+
+}

@@ -1,0 +1,49 @@
+package hw3;
+
+public class test {
+//	public static void main(String[] args){
+//		int a = 1<<2;
+//		System.out.println(a);
+//	}
+	public class Car {
+
+		   public Car(int numDoors) {
+
+		       myNumDoors = numDoors;
+
+		   }
+
+		     
+
+		   public abstract int maxNumPassengers();
+
+		 
+
+		   private int myNumDoors;
+
+		}
+
+		 
+
+		 
+
+		public class Sedan extends Car {
+
+
+
+		   public Sedan(int numDoors) {
+
+		      super(numDoors);
+
+		   }
+
+		     
+
+		   public int maxNumPassengers() {
+
+		       return myNumDoors * 1;
+
+		   }
+
+		}
+}

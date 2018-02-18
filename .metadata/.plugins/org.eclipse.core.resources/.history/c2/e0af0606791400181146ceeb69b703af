@@ -1,0 +1,12 @@
+package hw4;
+
+public class Bimodal {
+	private int howmanyItems;
+	public Bimodal(int n){
+		howmanyItems = 1 + (int)(Math.random() * n);
+//		num = n;
+	}
+	public int getNumItems(){
+		return howmanyItems;
+	}
+}

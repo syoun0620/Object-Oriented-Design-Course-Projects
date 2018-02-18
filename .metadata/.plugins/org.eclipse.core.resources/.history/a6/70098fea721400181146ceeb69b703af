@@ -1,0 +1,12 @@
+package hw4;
+
+public class Fast implements Cashier {
+
+	public String getType(){
+		return "fast";
+	}
+	
+	public void elapseOneSecond(){
+		
+	}
+}

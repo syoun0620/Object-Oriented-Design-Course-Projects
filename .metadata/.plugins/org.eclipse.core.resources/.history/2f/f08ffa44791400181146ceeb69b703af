@@ -1,0 +1,17 @@
+package hw4;
+
+import java.awt.List;
+import java.util.*;
+
+public class Bimodal {
+	private int howmanyItems;
+	public Bimodal(int n){
+		List<Integer> options = Lists.newArrayList(1,n/2, n);
+		
+		howmanyItems = 1 + (int)(Math.random() * n);
+//		num = n;
+	}
+	public int getNumItems(){
+		return howmanyItems;
+	}
+}

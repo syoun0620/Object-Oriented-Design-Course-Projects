@@ -1,0 +1,34 @@
+package hw4;
+
+public class Customer {
+   private int arrivalTime;
+   private int serviceTime;
+   private ItemDistribution distribution;
+   
+   public Customer(int t, String dist, int maxItems) {
+      arrivalTime = t;
+//      int howmanyItems = 1 + (int)(Math.random() * 10);
+      if (dist == "u")
+    	  distribution = new Uniform(maxItems);
+      else
+    	  distribution = new Bimodal(maxItems);
+//      else if (dist == "d")
+//    	  distribution = new Bimodal(maxItems);
+      System.out.println(dist);
+      
+      int howmanyItems = distribution.getNumItems();
+      serviceTime = 2*howmanyItems + 10;
+   }
+   
+   public void elapseOneSecond() {
+   		serviceTime --;
+   }
+   
+   public boolean isFinished() {
+   		return serviceTime == 0;
+   }
+   
+   public int arrivalTime() {
+      return arrivalTime;
+   }
+}

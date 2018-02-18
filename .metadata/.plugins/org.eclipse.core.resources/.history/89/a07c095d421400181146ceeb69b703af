@@ -1,0 +1,21 @@
+package hw3;
+
+import java.util.ArrayList;
+
+import java.util.Collections;
+
+import java.util.List;
+
+ 
+
+public class test{
+
+    public static void main(String[] args) {
+
+    	String str = "12121212";
+    	System.out.println(str);
+        
+
+    }
+}
+

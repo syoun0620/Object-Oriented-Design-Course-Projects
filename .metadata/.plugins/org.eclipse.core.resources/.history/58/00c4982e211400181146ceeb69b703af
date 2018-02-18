@@ -1,0 +1,34 @@
+package hw3;
+
+public class test {
+//	public static void main(String[] args){
+//		int a = 1<<2;
+//		System.out.println(a);
+//	}
+	class LongObj {
+
+		   private int m_length;
+
+		   LongObj( int length) {
+
+		      m_length = length;
+
+		   }
+
+		}
+
+		 
+
+		class LongAndWideObj extends LongObj {
+
+		   private int m_width;
+
+
+		LongAndWideObj (int width, int length) { 
+		    
+		    m_width = width; 
+		    super(length); 
+}
+
+		}
+}
